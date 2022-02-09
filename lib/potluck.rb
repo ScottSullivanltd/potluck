@@ -24,7 +24,23 @@ class Potluck
 
   def menu
     menu = {}
+    menu[:appetizers] = []
+    menu[:entres] = []
+    menu[:desserts] = []
 
+    @dishes.each do |dish|
+      if dish.category == :appetizer
+        menu[:appetizers] << dish.name
+      elsif dish.category == :entre
+        menu[:entres] << dish.name
+      elsif dish.category == :dessert
+        menu[:desserts] << dish.name
+      end
+    end
+    menu[:appetizers].sort!
+    menu[:entres].sort!
+
+    menu
   end
 
   def ratio(category)

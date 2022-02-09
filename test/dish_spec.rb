@@ -83,7 +83,7 @@ RSpec.describe Dish do
     expect(potluck.get_all_from_category(:appetizer).first.name).to eq("Couscous Salad")
   end
 
-  xit "returns a menu hash arranged by category" do
+  it "returns a menu hash arranged by category" do
     potluck = Potluck.new("7-13-18")
 
     couscous_salad = Dish.new("Couscous Salad", :appetizer)
@@ -100,7 +100,7 @@ RSpec.describe Dish do
     potluck.add_dish(candy_salad)
     potluck.add_dish(bean_dip)
 
-    expect(potluck.menu).to eq()
+    expect(potluck.menu).to eq({:appetizers=>["Bean Dip", "Couscous Salad", "Summer Pizza"], :entres=>["Cocktail Meatballs", "Roast Pork"], :desserts=>["Candy Salad"]})
   end
 
   it "returns the ratio of appetizers on the menu" do
